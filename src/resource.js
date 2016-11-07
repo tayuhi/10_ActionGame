@@ -1,5 +1,7 @@
 var res = {
-  opsakebi: "res/opsakebi.mp3",
+    hp: "res/体力.png",
+    skill: "res/技.png",
+    opsakebi: "res/opsakebi.mp3",
     titlebgm: "res/titlebgm.mp3",
     opvoice: "res/opvoice.mp3",
     opken: "res/OPの剣の音.mp3",

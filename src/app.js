@@ -2,10 +2,10 @@ var size;
 //1:地面　2:ブロック　3:プレイヤ　4:ゾンビ 5:こうもり
 var level = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 2, 0, 5, 0, 0],
-    [0, 0, 0, 0, 0, 2, 0, 2, 2, 2],
+    [0, 0, 0, 0, 0, 0, 0, 0, 6, 5],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 2, 2, 2, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
     [0, 0, 0, 0, 3, 0, 0, 0, 4, 0],
     [0, 0, 0, 1, 0, 0, 0, 0, 0, 0]
 ];
@@ -24,6 +24,7 @@ var koinkin;
 var koinkin2;
 var koingin;
 var koingin2;
+var titleslime2;
 
 var gameScene = cc.Scene.extend({
     onEnter: function() {
@@ -39,6 +40,8 @@ var gameScene = cc.Scene.extend({
         this.addChild(player);
         var enemys = new enemyLayer();
         this.addChild(enemys);
+        //var enemys2 = new EnemyLayer2();
+        //this.addChild(enemys2);
 
         audioEngine = cc.audioEngine;
         if (!audioEngine.isMusicPlaying()) {
@@ -89,6 +92,8 @@ var backgroundLayer = cc.Layer.extend({
         this.addChild(curtain2, 100);
         curtain2.setFlippedX(true);
 
+
+
         koindou = cc.Sprite.create(res.doukoin1);
         koindou.setPosition(400, 400);
         koindou.setScale(2);
@@ -137,6 +142,49 @@ var backgroundLayer = cc.Layer.extend({
         koingin2.schedule(this.workingkoingin2, 0.1);
         koingin2.arukiflag = 0;
 
+        titleslime2 = cc.Sprite.create(res.greenslime1);
+        titleslime2.setPosition(200, 200);
+        titleslime2.setScale(1.5);
+        this.addChild(titleslime2, 0.1);
+        this.scheduleUpdate();
+        titleslime2.schedule(this.workinggreenslime2, 0.03);
+        titleslime2.arukiflag = 0;
+
+        titlekislime3 = cc.Sprite.create(res.kinslime1);
+        titlekislime3.setPosition(500, 100);
+        titlekislime3.setScale(1.5);
+        this.addChild(titlekislime3, 0.1);
+        this.scheduleUpdate();
+        titlekislime3.schedule(this.workingkinslime3, 0.03);
+        titlekislime3.arukiflag = 0;
+
+        titlezonbi3 = cc.Sprite.create(res.zonbi1);
+        titlezonbi3.setPosition(600, 400);
+        titlezonbi3.setScale(1.5);
+        this.addChild(titlezonbi3, 0.1);
+        this.scheduleUpdate();
+        titlezonbi3.schedule(this.workingzonbi3, 0.1);
+        titlezonbi3.arukiflag = 0;
+
+        titleakaslime3 = cc.Sprite.create(res.akaslime1);
+        titleakaslime3.setPosition(800, 150);
+        titleakaslime3.setScale(1.5);
+        this.addChild(titleakaslime3, 0.1);
+        this.scheduleUpdate();
+        titleakaslime3.schedule(this.workingakaslime3, 0.03);
+        titleakaslime3.arukiflag = 0;
+
+
+        hp = cc.Sprite.create(res.hp);
+        hp.setPosition(170, 555);
+        hp.setScale(1);
+        this.addChild(hp, 101);
+
+        sk = cc.Sprite.create(res.skill);
+        sk.setPosition(480, 555);
+        sk.setScale(1);
+        this.addChild(sk, 101);
+
     },
     workingkoindou: function(event) {
 
@@ -167,6 +215,135 @@ var backgroundLayer = cc.Layer.extend({
         }
 
     },
+    workinggreenslime2: function(event) {
+
+
+        if (titleslime2.arukiflag == 0) {
+            titleslime2.initWithFile(res.greenslime13);
+            titleslime2.arukiflag = 1;
+        } else if (titleslime2.arukiflag == 1) {
+            titleslime2.initWithFile(res.greenslime14);
+            titleslime2.arukiflag = 2;
+        } else if (titleslime2.arukiflag == 2) {
+            titleslime2.initWithFile(res.greenslime15);
+            titleslime2.arukiflag = 3;
+        } else if (titleslime2.arukiflag == 3) {
+            titleslime2.initWithFile(res.greenslime16);
+            titleslime2.arukiflag = 4;
+        } else if (titleslime2.arukiflag == 4) {
+            titleslime2.initWithFile(res.greenslime9);
+            titleslime2.arukiflag = 5;
+        } else if (titleslime2.arukiflag == 5) {
+            titleslime2.initWithFile(res.greenslime10);
+            titleslime2.arukiflag = 6;
+        } else if (titleslime2.arukiflag == 6) {
+            titleslime2.initWithFile(res.greenslime11);
+            titleslime2.arukiflag = 7;
+        } else if (titleslime2.arukiflag == 7) {
+            titleslime2.initWithFile(res.greenslime12);
+            titleslime2.arukiflag = 8;
+        } else if (titleslime2.arukiflag == 8) {
+            titleslime2.initWithFile(res.greenslime5);
+            titleslime2.arukiflag = 9;
+        } else if (titleslime2.arukiflag == 9) {
+            titleslime2.initWithFile(res.greenslime6);
+            titleslime2.arukiflag = 10;
+        } else if (titleslime2.arukiflag == 10) {
+            titleslime2.initWithFile(res.greenslime7);
+            titleslime2.arukiflag = 11;
+        } else if (titleslime2.arukiflag == 11) {
+            titleslime2.initWithFile(res.greenslime8);
+            titleslime2.arukiflag = 12;
+        } else if (titleslime2.arukiflag == 12) {
+            titleslime2.initWithFile(res.greenslime1);
+            titleslime2.arukiflag = 13;
+        } else if (titleslime2.arukiflag == 13) {
+            titleslime2.initWithFile(res.greenslime2);
+            titleslime2.arukiflag = 14;
+        } else if (titleslime2.arukiflag == 14) {
+            titleslime2.initWithFile(res.greenslime3);
+            titleslime2.arukiflag = 15;
+        } else if (titleslime2.arukiflag == 15) {
+            titleslime2.initWithFile(res.greenslime4);
+            titleslime2.arukiflag = 0;
+        }
+
+    },
+
+    workingkinslime3: function(event) {
+        var pause = setTimeout(function() {
+
+            if (titlekislime3.arukiflag == 0) {
+                titlekislime3.initWithFile(res.kinslime1);
+                titlekislime3.arukiflag = 1;
+            } else if (titlekislime3.arukiflag == 1) {
+                titlekislime3.initWithFile(res.kinslime2);
+                titlekislime3.arukiflag = 2;
+            } else if (titlekislime3.arukiflag == 2) {
+                titlekislime3.initWithFile(res.kinslime3);
+                titlekislime3.arukiflag = 3;
+            } else if (titlekislime3.arukiflag == 3) {
+                titlekislime3.initWithFile(res.kinslime4);
+                titlekislime3.arukiflag = 4;
+            } else if (titlekislime3.arukiflag == 4) {
+                titlekislime3.initWithFile(res.kinslime5);
+                titlekislime3.arukiflag = 5;
+            } else if (titlekislime3.arukiflag == 5) {
+                titlekislime3.initWithFile(res.kinslime6);
+                titlekislime3.arukiflag = 6;
+            } else if (titlekislime3.arukiflag == 6) {
+                titlekislime3.initWithFile(res.kinslime7);
+                titlekislime3.arukiflag = 7;
+            } else if (titlekislime3.arukiflag == 7) {
+                titlekislime3.initWithFile(res.kinslime8);
+                titlekislime3.arukiflag = 8;
+            } else if (titlekislime3.arukiflag == 8) {
+                titlekislime3.initWithFile(res.kinslime9);
+                titlekislime3.arukiflag = 9;
+            } else if (titlekislime3.arukiflag == 9) {
+                titlekislime3.initWithFile(res.kinslime10);
+                titlekislime3.arukiflag = 10;
+            } else if (titlekislime3.arukiflag == 10) {
+                titlekislime3.initWithFile(res.kinslime11);
+                titlekislime3.arukiflag = 11;
+            } else if (titlekislime3.arukiflag == 11) {
+                titlekislime3.initWithFile(res.kinslime12);
+                titlekislime3.arukiflag = 0;
+            }
+        }, 100);
+    },
+
+    workingzonbi3: function(event) {
+        var pause = setTimeout(function() {
+
+            if (titlezonbi3.arukiflag == 0) {
+                titlezonbi3.initWithFile(res.zonbi1);
+                titlezonbi3.arukiflag = 1;
+            } else if (titlezonbi3.arukiflag == 1) {
+                titlezonbi3.initWithFile(res.zonbi2);
+                titlezonbi3.arukiflag = 2;
+            } else if (titlezonbi3.arukiflag == 2) {
+                titlezonbi3.initWithFile(res.zonbi3);
+                titlezonbi3.arukiflag = 3;
+            } else if (titlezonbi3.arukiflag == 3) {
+                titlezonbi3.initWithFile(res.zonbi4);
+                titlezonbi3.arukiflag = 4;
+            } else if (titlezonbi3.arukiflag == 4) {
+                titlezonbi3.initWithFile(res.zonbi5);
+                titlezonbi3.arukiflag = 5;
+            } else if (titlezonbi3.arukiflag == 5) {
+                titlezonbi3.initWithFile(res.zonbi6);
+                titlezonbi3.arukiflag = 6;
+            } else if (titlezonbi3.arukiflag == 6) {
+                titlezonbi3.initWithFile(res.zonbi7);
+                titlezonbi3.arukiflag = 7;
+            } else if (titlezonbi3.arukiflag == 7) {
+                titlezonbi3.initWithFile(res.zonbi8);
+                titlezonbi3.arukiflag = 0;
+            }
+        }, 100);
+    },
+
     workingkoindou2: function(event) {
         if (koindou2.arukiflag == 0) {
             koindou2.initWithFile(res.doukoin1);
@@ -193,6 +370,49 @@ var backgroundLayer = cc.Layer.extend({
             koindou2.initWithFile(res.doukoin8);
             koindou2.arukiflag = 0;
         }
+    },
+
+    workingakaslime3: function(event) {
+        var pause = setTimeout(function() {
+
+            if (titleakaslime3.arukiflag == 0) {
+                titleakaslime3.initWithFile(res.akaslime1);
+                titleakaslime3.arukiflag = 1;
+            } else if (titleakaslime3.arukiflag == 1) {
+                titleakaslime3.initWithFile(res.akaslime2);
+                titleakaslime3.arukiflag = 2;
+            } else if (titleakaslime3.arukiflag == 2) {
+                titleakaslime3.initWithFile(res.akaslime3);
+                titleakaslime3.arukiflag = 3;
+            } else if (titleakaslime3.arukiflag == 3) {
+                titleakaslime3.initWithFile(res.akaslime4);
+                titleakaslime3.arukiflag = 4;
+            } else if (titleakaslime3.arukiflag == 4) {
+                titleakaslime3.initWithFile(res.akaslime5);
+                titleakaslime3.arukiflag = 5;
+            } else if (titleakaslime3.arukiflag == 5) {
+                titleakaslime3.initWithFile(res.akaslime6);
+                titleakaslime3.arukiflag = 6;
+            } else if (titleakaslime3.arukiflag == 6) {
+                titleakaslime3.initWithFile(res.akaslime7);
+                titleakaslime3.arukiflag = 7;
+            } else if (titleakaslime3.arukiflag == 7) {
+                titleakaslime3.initWithFile(res.akaslime8);
+                titleakaslime3.arukiflag = 8;
+            } else if (titleakaslime3.arukiflag == 8) {
+                titleakaslime3.initWithFile(res.akaslime9);
+                titleakaslime3.arukiflag = 9;
+            } else if (titleakaslime3.arukiflag == 9) {
+                titleakaslime3.initWithFile(res.akaslime10);
+                titleakaslime3.arukiflag = 10;
+            } else if (titleakaslime3.arukiflag == 10) {
+                titleakaslime3.initWithFile(res.akaslime11);
+                titleakaslime3.arukiflag = 11;
+            } else if (titleakaslime3.arukiflag == 11) {
+                titleakaslime3.initWithFile(res.akaslime12);
+                titleakaslime3.arukiflag = 0;
+            }
+        }, 100);
     },
     workingkoinkin: function(event) {
 
@@ -394,6 +614,7 @@ var Player = cc.Sprite.extend({
         this.ySpeed = 0;
         this.jumpFlag = false;
         this.ugokifrag = false;
+        this.invulnerability = 0; //無敵モード時間　初期値0
 
         for (i = 0; i < 7; i++) {　　　　　　
             for (j = 0; j < 10; j++) {
@@ -414,13 +635,14 @@ var Player = cc.Sprite.extend({
         this.addChild(player1, 0);
         player1.workingFlag = false;
         this.scheduleUpdate();
-        player1.schedule(this.working, 0.2);
+        player1.schedule(this.working, 0.15);
         player1.motion = 0;
         player1.mukiflag = 0;
         player1.animeflag = 0;
         player1.kougekiflag = 0;
         player1.tatikougeki = false;
         player1.jump = 0;
+
         //this.schedule(this.working,0.08);
         /*
           // 2.　SpriteFrame　を利用しての歩行アニメーション
@@ -673,6 +895,12 @@ var Player = cc.Sprite.extend({
         //位置を更新する
         this.setPosition(this.getPosition().x + this.xSpeed, this.getPosition().y + this.ySpeed);
 
+        //無敵モード中の視覚効果
+        if (this.invulnerability > 0) {
+            this.invulnerability--;
+            player1.setOpacity(250 - player1.getOpacity());
+        }
+
     },
 
 
@@ -755,13 +983,14 @@ var keylistener = cc.EventListener.create({
         if (keyCode == 81) { // e-Keyで攻撃
             //            player1.motion = 5;
             player1.tatikougeki = true;
+            audioEngine.playEffect(res.opken, false);
         }
         if (keyCode == 32 || keyCode == 87) { // スペースキーかwキーでジャンプ
             if (player.jumpFlag == false && player.ySpeed == 0) //player.ySpeed = 9;
                 player.jumpFlag = true;
             //    player1.motion = 5;
             jumpBtn.setOpacity(255);
-            miss++
+            miss++;
             missText.setString("SCORE: " + miss);
         }
 

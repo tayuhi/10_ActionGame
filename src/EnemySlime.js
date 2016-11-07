@@ -1,19 +1,19 @@
-var HoverHeight = 300; //ホバリング
-var RiseHeight = 240; //Rise上昇
+var HoverHeight2 = 300; //ホバリング
+var RiseHeight2 = 240; //Rise上昇
 
-var enemyBat;
+var enemyslime;
 
-var enemyLayer = cc.Layer.extend({
+var EnemyLayer2 = cc.Layer.extend({
    ctor: function() {
       this._super();
-      enemyBat = new EnemyBat();
-      this.addChild(enemyBat);
+      enemyslime = new EnemySlime();
+      this.addChild(enemyslime);
       //cc.eventManager.addListener(listener, this);
 
    }
 
 });
-var EnemyBat = cc.Sprite.extend({
+var EnemySlime = cc.Sprite.extend({
   ctor: function() {
     this._super();
     this.initWithFile(res.bat_frames);
@@ -48,8 +48,65 @@ var EnemyBat = cc.Sprite.extend({
 
     this.scheduleUpdate();
 
-  },
 
+//    this.scheduleUpdate();
+
+  },
+  /*workinggreenslime2: function(event) {
+      var pause = setTimeout(function() {
+
+          if (titleslime2.arukiflag == 0) {
+              titleslime2.initWithFile(res.greenslime13);
+              titleslime2.arukiflag = 1;
+          } else if (titleslime2.arukiflag == 1) {
+              titleslime2.initWithFile(res.greenslime14);
+              titleslime2.arukiflag = 2;
+          } else if (titleslime2.arukiflag == 2) {
+              titleslime2.initWithFile(res.greenslime15);
+              titleslime2.arukiflag = 3;
+          } else if (titleslime2.arukiflag == 3) {
+              titleslime2.initWithFile(res.greenslime16);
+              titleslime2.arukiflag = 4;
+          } else if (titleslime2.arukiflag == 4) {
+              titleslime2.initWithFile(res.greenslime9);
+              titleslime2.arukiflag = 5;
+          } else if (titleslime2.arukiflag == 5) {
+              titleslime2.initWithFile(res.greenslime10);
+              titleslime2.arukiflag = 6;
+          } else if (titleslime2.arukiflag == 6) {
+              titleslime2.initWithFile(res.greenslime11);
+              titleslime2.arukiflag = 7;
+          } else if (titleslime2.arukiflag == 7) {
+              titleslime2.initWithFile(res.greenslime12);
+              titleslime2.arukiflag = 8;
+          } else if (titleslime2.arukiflag == 8) {
+              titleslime2.initWithFile(res.greenslime5);
+              titleslime2.arukiflag = 9;
+          } else if (titleslime2.arukiflag == 9) {
+              titleslime2.initWithFile(res.greenslime6);
+              titleslime2.arukiflag = 10;
+          } else if (titleslime2.arukiflag == 10) {
+              titleslime2.initWithFile(res.greenslime7);
+              titleslime2.arukiflag = 11;
+          } else if (titleslime2.arukiflag == 11) {
+              titleslime2.initWithFile(res.greenslime8);
+              titleslime2.arukiflag = 12;
+          } else if (titleslime2.arukiflag == 12) {
+              titleslime2.initWithFile(res.greenslime1);
+              titleslime2.arukiflag = 13;
+          } else if (titleslime2.arukiflag == 13) {
+              titleslime2.initWithFile(res.greenslime2);
+              titleslime2.arukiflag = 14;
+          } else if (titleslime2.arukiflag == 14) {
+              titleslime2.initWithFile(res.greenslime3);
+              titleslime2.arukiflag = 15;
+          } else if (titleslime2.arukiflag == 15) {
+              titleslime2.initWithFile(res.greenslime4);
+              titleslime2.arukiflag = 0;
+          }
+      }, 100);
+  },
+*/
   update: function(dt) {
     this.FrameCount++;
     var playerBoundingBox = player.getBoundingBox();
@@ -74,8 +131,8 @@ var EnemyBat = cc.Sprite.extend({
       var velocity_x = lerp(this.velocity.x, offset_x, 0.005);
       var velocity_y = this.velocity.y;
       //フォバリング高度より上なら下降させる。　降下下限高度より下にいたら、上昇させる
-      if (this.getPosition().y > HoverHeight) velocity_y += -0.035;
-      if (this.getPosition().y < RiseHeight) velocity_y += 0.05;
+      if (this.getPosition().y > HoverHeight2) velocity_y += -0.035;
+      if (this.getPosition().y < RiseHeight2) velocity_y += 0.05;
       //プレイヤーの位置よりできるだけ下にならないように
       if (this.getPosition().y < player.y + 20) velocity_y += 0.05;
       //8の字旋回軌道をsin計算で適当に補正
