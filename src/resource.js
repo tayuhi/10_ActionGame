@@ -1,6 +1,7 @@
 var res = {
     hp: "res/体力.png",
     skill: "res/技.png",
+    slime_green_frames: "res/slime_green_frames.png",
     opsakebi: "res/opsakebi.mp3",
     titlebgm: "res/titlebgm.mp3",
     opvoice: "res/opvoice.mp3",

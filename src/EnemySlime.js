@@ -16,13 +16,14 @@ var EnemyLayer2 = cc.Layer.extend({
 var EnemySlime = cc.Sprite.extend({
   ctor: function() {
     this._super();
-    this.initWithFile(res.bat_frames);
+    this.initWithFile(res.slime_green_frames);
     this.velocity = cc.p(0, 0);
     this.FrameCount = 0;
+    this.setScale(1.5);
 
     for (i = 0; i < 7; i++) {　　　　　　
       for (j = 0; j < 10; j++) {
-        if (level[i][j] == 5) {
+        if (level[i][j] == 6) {
           this.setPosition(tileSize / 2 + tileSize * j, 96 * (7 - i) - tileSize / 2);
         }
       }
@@ -30,7 +31,7 @@ var EnemySlime = cc.Sprite.extend({
 
     var animationframe = [];
     //スプライトフレームを格納する配列
-    var texture = cc.textureCache.addImage(res.bat_frames);
+    var texture = cc.textureCache.addImage(res.slime_green_frames);
     for (i = 0; i < 2; i++) {
       for (j = 0; j < 2; j++) {
         //スプライトフレームを作成

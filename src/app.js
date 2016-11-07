@@ -25,6 +25,7 @@ var koinkin2;
 var koingin;
 var koingin2;
 var titleslime2;
+var enemys2;
 
 var gameScene = cc.Scene.extend({
     onEnter: function() {
@@ -40,8 +41,8 @@ var gameScene = cc.Scene.extend({
         this.addChild(player);
         var enemys = new enemyLayer();
         this.addChild(enemys);
-        //var enemys2 = new EnemyLayer2();
-        //this.addChild(enemys2);
+         enemys2 = new EnemyLayer2();
+        this.addChild(enemys2);
 
         audioEngine = cc.audioEngine;
         if (!audioEngine.isMusicPlaying()) {
